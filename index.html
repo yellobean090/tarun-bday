@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Tarun 💖 — From Priya</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#070713;
+      --bg2:#0b1021;
+      --card: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --pink:#ff5fa2;
+      --lav:#b48cff;
+      --gold:#ffd77a;
+      --mint:#69f7d1;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      overflow-x:hidden;
+      background:
+        radial-gradient(1200px 800px at 20% 20%, rgba(255,95,162,.18), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(180,140,255,.18), transparent 65%),
+        radial-gradient(900px 700px at 60% 90%, rgba(105,247,209,.12), transparent 60%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
+
+    /* Ambient stars */
+    .stars, .stars2, .stars3{
+      position:fixed; inset:0;
+      background-repeat:repeat;
+      pointer-events:none;
+      opacity:.55;
+      mix-blend-mode:screen;
+      z-index:0;
+    }
+    .stars{background-image:radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px); background-size:120px 120px; filter:blur(.1px); animation: drift 30s linear infinite;}
+    .stars2{background-image:radial-gradient(rgba(255,255,255,.35) 1px, transparent 1px); background-size:180px 180px; animation: drift2 55s linear infinite;}
+    .stars3{background-image:radial-gradient(rgba(255,255,255,.25) 1px, transparent 1px); background-size:240px 240px; animation: drift3 85s linear infinite;}
+    @keyframes drift{to{transform:translate3d(-60px,40px,0)}}
+    @keyframes drift2{to{transform:translate3d(70px,-30px,0)}}
+    @keyframes drift3{to{transform:translate3d(-90px,-60px,0)}}
+
+    /* Confetti canvas */
+    canvas#confetti{
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:6;
+    }
+
+    /* Layout */
+    .wrap{
+      position:relative;
+      z-index:2;
+      max-width:1100px;
+      margin:0 auto;
+      padding:22px 16px 90px;
+    }
+
+    /* Top bar */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 6px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
+    }
+    .badge{
+      width:44px; height:44px;
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 50%),
+        linear-gradient(135deg, rgba(255,95,162,.9), rgba(180,140,255,.9));
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .badge span{
+      font-size:20px; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+    }
+    .brand .title{
+      line-height:1.05;
+    }
+    .brand .title b{
+      font-family:Pacifico, cursive;
+      font-size:18px;
+      font-weight:400;
+      letter-spacing:.3px;
+    }
+    .brand .title small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      cursor:pointer;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.25)}
+    .btn:active{transform:translateY(0px) scale(.98)}
+    .btn .dot{
+      width:9px; height:9px; border-radius:999px;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow: 0 0 14px rgba(255,95,162,.6);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .heroLeft{
+      padding:22px 18px;
+      min-height:340px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      color: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 12px;
+      border-radius:999px;
+    }
+    .kicker .spark{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--gold);
+      box-shadow:0 0 18px rgba(255,215,122,.6);
+    }
+    h1{
+      margin:14px 0 6px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+    @media (max-width:520px){ h1{font-size:36px} }
+    h1 .name{
+      background: linear-gradient(135deg, #fff, rgba(255,255,255,.75));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    h1 .glow{
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter:drop-shadow(0 10px 25px rgba(255,95,162,.22));
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:56ch;
+    }
+
+    .ctaRow{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:13px;
+      color: rgba(255,255,255,.88);
+      cursor:pointer;
+      transition:.25s ease;
+      user-select:none;
+    }
+    .chip:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.22)}
+    .chip i{
+      width:18px;height:18px;border-radius:6px;
+      display:inline-grid; place-items:center;
+      background: linear-gradient(135deg, rgba(255,95,162,.9), rgba(180,140,255,.85));
+      font-style:normal;
+      box-shadow:0 10px 22px rgba(0,0,0,.25);
+    }
+
+    /* Right hero - wish box */
+    .heroRight{
+      padding:18px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:340px;
+    }
+    .noteTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:6px 4px 0;
+    }
+    .noteTitle b{
+      font-family:Pacifico,cursive;
+      font-weight:400;
+      font-size:18px;
+    }
+    .noteTitle small{color:var(--muted)}
+    .msgBox{
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+      padding:14px 12px;
+      min-height:140px;
+      position:relative;
+      overflow:hidden;
+    }
+    .msg{
+      font-size:14px;
+      line-height:1.7;
+      margin:0;
+      color: rgba(255,255,255,.90);
+    }
+    .from{
+      margin-top:10px;
+      color: rgba(255,255,255,.82);
+      font-size:13px;
+    }
+    .from b{
+      background: linear-gradient(135deg, var(--mint), var(--gold));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .tiny{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .pill{
+      flex:1 1 120px;
+      border-radius:18px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px 12px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .pill .ic{
+      width:38px;height:38px;border-radius:14px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .pill div{line-height:1.15}
+    .pill b{font-size:13px}
+    .pill small{display:block; color:var(--muted); font-size:12px; margin-top:4px}
+
+    /* Photo intro collage */
+    .collage{
+      margin-top:18px;
+      padding:16px;
+    }
+    .collageHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+      padding:6px 6px 14px;
+    }
+    .collageHead h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .collageHead p{
+      margin:0;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 900px){
+      .grid{gap:10px}
+    }
+
+    .ph{
+      border-radius: 20px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      transform: translateY(10px) scale(.98);
+      opacity:0;
+    }
+    .ph img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.1) contrast(1.05);
+      transform: scale(1.02);
+      transition: transform .45s ease;
+    }
+    .ph:hover img{transform:scale(1.08)}
+    .ph::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55));
+      opacity:.8;
+      pointer-events:none;
+    }
+    .tag{
+      position:absolute;
+      left:12px;
+      bottom:10px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      font-size:12px;
+      border-radius:999px;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index:2;
+    }
+    .tag .heart{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow:0 0 16px rgba(255,95,162,.55);
+    }
+
+    /* Define collage layout */
+    .ph.p1{grid-column: 1 / span 6; grid-row: 1 / span 2; height:320px;}
+    .ph.p2{grid-column: 7 / span 6; grid-row: 1 / span 1; height:154px;}
+    .ph.p3{grid-column: 7 / span 6; grid-row: 2 / span 1; height:154px;}
+    .ph.p4{grid-column: 1 / span 5; grid-row: 3 / span 1; height:210px;}
+    .ph.p5{grid-column: 6 / span 7; grid-row: 3 / span 1; height:210px;}
+
+    @media (max-width: 900px){
+      .ph.p1{grid-column: 1 / span 12; height:260px;}
+      .ph.p2{grid-column: 1 / span 6; height:170px;}
+      .ph.p3{grid-column: 7 / span 6; height:170px;}
+      .ph.p4{grid-column: 1 / span 6; height:180px;}
+      .ph.p5{grid-column: 7 / span 6; height:180px;}
+    }
+    @media (max-width: 520px){
+      .ph.p2,.ph.p3,.ph.p4,.ph.p5{grid-column: 1 / span 12; height:190px;}
+    }
+
+    /* Slider */
+    .slider{
+      margin-top:18px;
+      padding:16px;
+    }
+    .sliderTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:6px 6px 14px;
+    }
+    .sliderTop h2{margin:0; font-size:18px}
+    .sliderTop .nav{
+      display:flex; gap:10px;
+    }
+    .nav button{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      cursor:pointer;
+      transition:.25s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    .nav button:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.24)}
+    .nav button:active{transform:translateY(0px) scale(.98)}
+
+    .rail{
+      display:flex;
+      gap:12px;
+      overflow:hidden;
+      position:relative;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      padding:12px;
+    }
+    .track{
+      display:flex;
+      gap:12px;
+      transition: transform .55s cubic-bezier(.2,.85,.2,1);
+      will-change: transform;
+    }
+    .shot{
+      width: 260px;
+      height: 340px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      position:relative;
+      cursor:pointer;
+      flex: 0 0 auto;
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+    }
+    .shot img{width:100%;height:100%;object-fit:cover; display:block; transition: transform .45s ease}
+    .shot:hover img{transform:scale(1.08)}
+    .cap{
+      position:absolute;
+      left:12px; right:12px; bottom:10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      z-index:2;
+    }
+    .cap span{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.38);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .cap b{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-weight:600;
+    }
+
+    /* Quote section */
+    .quotes{
+      margin-top:18px;
+      padding:16px;
+    }
+    .qTop{
+      padding:6px 6px 14px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+    }
+    .qTop h2{margin:0; font-size:18px}
+    .qTop p{margin:0;color:var(--muted); font-size:12px}
+
+    .qGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 900px){ .qGrid{grid-template-columns:1fr} }
+
+    .quote{
+      border-radius: 18px;
+      padding:14px 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .quote::before{
+      content:"“";
+      position:absolute;
+      top:-10px; left:10px;
+      font-size:72px;
+      color: rgba(255,255,255,.10);
+      font-family: Pacifico, cursive;
+    }
+    .quote p{
+      margin:0;
+      font-size:13px;
+      line-height:1.7;
+      color: rgba(255,255,255,.88);
+      position:relative;
+      z-index:1;
+    }
+    .quote small{
+      display:block;
+      margin-top:10px;
+      color: rgba(255,255,255,.68);
+      font-size:12px;
+    }
+
+    /* Footer */
+    .footer{
+      margin-top:22px;
+      text-align:center;
+      color: rgba(255,255,255,.65);
+      font-size:12px;
+      padding:16px 0 0;
+    }
+    .footer b{color:rgba(255,255,255,.9)}
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:20;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .modal.open{display:flex}
+    .modalCard{
+      width:min(960px, 100%);
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(20,20,40,.55);
+      box-shadow: 0 28px 90px rgba(0,0,0,.6);
+      position:relative;
+    }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .modalTop b{font-size:13px}
+    .modalTop button{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color:var(--text);
+      border-radius:14px;
+      padding:10px 12px;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .modalTop button:hover{transform:translateY(-2px)}
+    .modalImg{
+      width:100%;
+      max-height: 72vh;
+      object-fit: contain;
+      display:block;
+      background: rgba(0,0,0,.3);
+    }
+
+    /* Loader overlay for “opening animation” */
+    .intro{
+      position:fixed; inset:0;
+      z-index:30;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(900px 700px at 40% 25%, rgba(255,95,162,.22), transparent 60%),
+        radial-gradient(900px 700px at 70% 80%, rgba(180,140,255,.18), transparent 60%),
+        linear-gradient(180deg, #050510, #070a1a);
+      transition: opacity .6s ease, visibility .6s ease;
+    }
+    .intro.hide{opacity:0; visibility:hidden; pointer-events:none}
+    .introCard{
+      width:min(720px, 92vw);
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 30px 100px rgba(0,0,0,.65);
+      padding:18px 16px;
+      overflow:hidden;
+      position:relative;
+    }
+    .introCard::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(circle at 20% 20%, rgba(255,95,162,.20), transparent 45%),
+                  radial-gradient(circle at 80% 40%, rgba(180,140,255,.18), transparent 50%),
+                  radial-gradient(circle at 60% 90%, rgba(105,247,209,.12), transparent 45%);
+      z-index:0;
+      filter: blur(18px);
+      opacity:.8;
+    }
+    .introInner{position:relative; z-index:1}
+    .introH{
+      font-family:Pacifico,cursive;
+      font-weight:400;
+      font-size:26px;
+      margin:6px 0 4px;
+      text-align:center;
+    }
+    .introP{
+      margin:0;
+      text-align:center;
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      line-height:1.6;
+    }
+    .introThumbs{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .thumb{
+      width:110px;
+      height:140px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      transform: translateY(18px) scale(.95);
+      opacity:0;
+      box-shadow: 0 14px 45px rgba(0,0,0,.5);
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover; display:block}
+    .introBtnRow{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* Smooth reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+    }
+
+    /* Little floating hearts */
+    .hearts{
+      position:fixed;
+      inset:0;
+      z-index:5;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .heartFloat{
+      position:absolute;
+      width:10px;height:10px;
+      transform: rotate(45deg);
+      opacity:.75;
+      filter: drop-shadow(0 10px 20px rgba(255,95,162,.22));
+      animation: floatUp linear forwards;
+    }
+    .heartFloat:before, .heartFloat:after{
+      content:"";
+      position:absolute;
+      width:10px;height:10px;
+      border-radius:50%;
+      background:inherit;
+    }
+    .heartFloat:before{left:-5px}
+    .heartFloat:after{top:-5px}
+    @keyframes floatUp{
+      from{transform:translateY(0) rotate(45deg); opacity:.75}
+      to{transform:translateY(-120vh) rotate(45deg); opacity:0}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <canvas id="confetti"></canvas>
+  <div class="hearts" id="hearts"></div>
+
+  <!-- INTRO OVERLAY -->
+  <div class="intro" id="intro">
+    <div class="introCard">
+      <div class="introInner">
+        <div class="kicker" style="justify-content:center; width:fit-content; margin:0 auto;">
+          <span class="spark"></span>
+          <span>Tap for the surprise ✨</span>
+        </div>
+        <h2 class="introH">Happy Birthday Tarun 💖</h2>
+        <p class="introP">
+          From <b style="color:#fff">Priya</b> — a tiny website full of cute lines, photos & vibes 🥺✨
+        </p>
+
+        <div class="introThumbs">
+          <div class="thumb"><img src="assets/1.jpg" alt=""></div>
+          <div class="thumb"><img src="assets/2.jpg" alt=""></div>
+          <div class="thumb"><img src="assets/3.jpg" alt=""></div>
+          <div class="thumb"><img src="assets/4.jpg" alt=""></div>
+          <div class="thumb"><img src="assets/5.jpg" alt=""></div>
+        </div>
+
+        <div class="introBtnRow">
+          <button class="btn" id="startBtn"><span class="dot"></span> Open Surprise</button>
+          <button class="btn" id="musicBtn"><span class="dot"></span> Music: Off</button>
+        </div>
+
+        <p class="introP" style="margin-top:10px; opacity:.85">
+          (Tip: best in full screen 🌙)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="badge"><span>🎂</span></div>
+        <div class="title">
+          <b>Tarun’s Day</b>
+          <small>made with love — Priya 💗</small>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="confettiBtn"><span class="dot"></span> Confetti</button>
+        <button class="btn" id="heartsBtn"><span class="dot"></span> Hearts</button>
+        <button class="btn" id="scrollPhotos"><span class="dot"></span> Photos</button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card heroLeft reveal">
+        <div class="kicker"><span class="spark"></span><span>Birthday Mode: ON</span></div>
+
+        <h1>
+          Happy Birthday <span class="name">Tarun</span> <span class="glow">💖</span>
+        </h1>
+        <p class="sub">
+          Aaj tumhara din hai, aur main officially announce karti hoon —
+          you’re <b>my favorite human</b> (and yes, thoda sa annoying bhi 😌).
+          But cute? <b>Bahot zyada.</b>
+        </p>
+
+        <div class="ctaRow">
+          <div class="chip" id="wishBtn"><i>✨</i> Tap for a cute wish</div>
+          <div class="chip" id="flirtBtn"><i>😳</i> Tap for a flirty line</div>
+          <div class="chip" id="complBtn"><i>💛</i> Tap for a compliment</div>
+        </div>
+      </div>
+
+      <div class="card heroRight reveal">
+        <div class="noteTitle">
+          <b>Priya’s Message</b>
+          <small id="today"></small>
+        </div>
+        <div class="msgBox">
+          <p class="msg" id="mainMsg">
+            "bahot sweet hai<br>
+            Pr ho toh chuze hi<br>
+            Mere Chachundar hi<br>
+            Bahot pyaare ho pr ho toh mere chuze hi<br>
+            Bahot hi vo ho par koi na ho toh mere hi"
+          </p>
+          <div class="from">— from <b>Priya</b> 🫶</div>
+        </div>
+
+        <div class="tiny">
+          <div class="pill">
+            <div class="ic">🎁</div>
+            <div><b>Wish</b><small>more smiles, less stress</small></div>
+          </div>
+          <div class="pill">
+            <div class="ic">🌙</div>
+            <div><b>Vibe</b><small>soft, romantic, aesthetic</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLAGE -->
+    <section class="card collage reveal" id="photosSection">
+      <div class="collageHead">
+        <div>
+          <h2>Tarun in 5 frames 📸</h2>
+          <p>Tap any photo to open it ✨</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+          <span class="kicker" style="padding:8px 10px;"><span class="spark"></span> aesthetic mode</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <figure class="ph p1" data-i="1"><img src="assets/1.jpg" alt="Tarun photo 1"><figcaption class="tag"><span class="heart"></span> Tarun ✨</figcaption></figure>
+        <figure class="ph p2" data-i="2"><img src="assets/2.jpg" alt="Tarun photo 2"><figcaption class="tag"><span class="heart"></span> My cute chuze 😌</figcaption></figure>
+        <figure class="ph p3" data-i="3"><img src="assets/3.jpg" alt="Tarun photo 3"><figcaption class="tag"><span class="heart"></span> Aesthetic vibes</figcaption></figure>
+        <figure class="ph p4" data-i="4"><img src="assets/4.jpg" alt="Tarun photo 4"><figcaption class="tag"><span class="heart"></span> Handsome alert</figcaption></figure>
+        <figure class="ph p5" data-i="5"><img src="assets/5.jpg" alt="Tarun photo 5"><figcaption class="tag"><span class="heart"></span> Birthday boy</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SLIDER -->
+    <section class="card slider reveal">
+      <div class="sliderTop">
+        <h2>Swipe-worthy Gallery 💫</h2>
+        <div class="nav">
+          <button id="prev" aria-label="Previous">⟵</button>
+          <button id="next" aria-label="Next">⟶</button>
+        </div>
+      </div>
+
+      <div class="rail" id="rail">
+        <div class="track" id="track">
+          <!-- slides injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTES -->
+    <section class="card quotes reveal">
+      <div class="qTop">
+        <div>
+          <h2>Priya ke “bahot pyaare” quotes 😭💗</h2>
+          <p>thoda cute, thoda roast, full love.</p>
+        </div>
+        <div class="kicker"><span class="spark"></span><span>Hinglish Edition</span></div>
+      </div>
+
+      <div class="qGrid" id="qGrid">
+        <div class="quote">
+          <p>“Tum bahot sweet ho… par ho toh mere chuze hi.”</p>
+          <small>— Priya 😌</small>
+        </div>
+        <div class="quote">
+          <p>“Handsome toh ho, par attitude dikhaya na… main extra pyaar se tang karungi.”</p>
+          <small>— Priya 💅</small>
+        </div>
+        <div class="quote">
+          <p>“Aaj tumhara birthday hai… isliye tumhe dekh ke main blush karungi, fight nahi.”</p>
+          <small>— Priya 😳</small>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Made with <b>💖</b> for Tarun — by <b>Priya</b>. <span style="opacity:.85">Keep smiling, birthday boy ✨</span>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modalCard">
+      <div class="modalTop">
+        <b id="modalTitle">Photo</b>
+        <button id="closeModal">Close ✖</button>
+      </div>
+      <img id="modalImg" class="modalImg" alt="Opened photo" />
+    </div>
+  </div>
+
+  <!-- Optional music (royalty-free vibe) -->
+  <!-- If you want your own song, put it in assets/music.mp3 and rename below -->
+  <audio id="music" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // ----------------------------
+    // Utilities
+    // ----------------------------
+    const $ = (q) => document.querySelector(q);
+    const $$ = (q) => Array.from(document.querySelectorAll(q));
+
+    const photos = [
+      { src: "assets/1.jpg", cap: "Tarun ✨", tag: "Priya approved 😌" },
+      { src: "assets/2.jpg", cap: "My chuze", tag: "bahot sweet" },
+      { src: "assets/3.jpg", cap: "Aesthetic", tag: "vibes only" },
+      { src: "assets/4.jpg", cap: "Event fit", tag: "handsome alert" },
+      { src: "assets/5.jpg", cap: "Award boy", tag: "proud moment" }
+    ];
+
+    const wishes = [
+      "Happy Birthday Tarun 💖 Aaj tum sirf smile karoge, okay? Priya ka order hai 😌",
+      "Tarun, I hope tumhara din utna hi special ho jitna tum mujhse attention expect karte ho 😭💗",
+      "Birthday boy, tumhara year full glow-up ho — and mujhe daily extra cute updates chahiye 🫶",
+      "Aaj tumhe main officially ‘too precious’ declare karti hoon. Ab deal with it 😳✨",
+      "Tarun, khush raho, healthy raho, aur… Priya ko miss bhi thoda zyada karna 😌"
+    ];
+
+    const flirts = [
+      "Tarun, birthday pe wish toh sab karte hain… main toh tumhe *apna* wish banake rakhti hoon 😳💗",
+      "Aaj tumhari smile pe ‘copyright’ Priya ka hai… kisi aur ko free mein mat dena 😌",
+      "Tum itne cute kyu ho? Mere self-control ka test le rahe ho kya? 😭",
+      "Birthday boy, cake toh cut karoge… par mujhe bhi thoda attention cut chahiye 🫣",
+      "Tarun, tumhe dekh ke lagta hai main ‘blush’ update uninstall hi nahi kar sakti 😳✨"
+    ];
+
+    const compliments = [
+      "Tarun, tumhari vibe genuinely calming hai — like comfort wala aesthetic 💫",
+      "You look so good that even your ‘side profile’ deserves a fan club 😌",
+      "Tarun, tum smart bhi ho aur cute bhi… unfair advantage hai ye 😭",
+      "Tumhari presence hi enough hai mood theek karne ke liye 🫶",
+      "Tarun, you’re that ‘good person’ energy… rare and precious 💛"
+    ];
+
+    // ----------------------------
+    // Date label
+    // ----------------------------
+    const d = new Date();
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    $("#today").textContent = `${d.getDate()} ${months[d.getMonth()]} • Birthday vibes`;
+
+    // ----------------------------
+    // Intro animation
+    // ----------------------------
+    const intro = $("#intro");
+    const startBtn = $("#startBtn");
+    const musicBtn = $("#musicBtn");
+    const music = $("#music");
+    let musicOn = false;
+
+    // animate thumbs in intro
+    window.addEventListener("load", () => {
+      const thumbs = $$(".thumb");
+      thumbs.forEach((t, i) => {
+        t.animate(
+          [
+            { opacity: 0, transform: "translateY(18px) scale(.95)" },
+            { opacity: 1, transform: "translateY(0px) scale(1)" }
+          ],
+          { duration: 700, delay: 160 + i * 90, easing: "cubic-bezier(.2,.85,.2,1)", fill: "forwards" }
+        );
+      });
+    });
+
+    function tryPlayMusic(){
+      // will work only after user gesture
+      if (!music) return;
+      music.volume = 0.6;
+      music.play().then(() => {
+        musicOn = true;
+        musicBtn.innerHTML = '<span class="dot"></span> Music: On';
+      }).catch(() => {
+        // ignore if blocked
+      });
+    }
+
+    musicBtn.addEventListener("click", () => {
+      if (!musicOn){
+        tryPlayMusic();
+      } else {
+        music.pause();
+        musicOn = false;
+        musicBtn.innerHTML = '<span class="dot"></span> Music: Off';
+      }
+    });
+
+    startBtn.addEventListener("click", () => {
+      intro.classList.add("hide");
+
+      // Confetti burst + reveal sections
+      burstConfetti(220);
+      revealAll();
+      spawnHearts(18);
+      // try music only if user wants, but we can gently auto try:
+      // tryPlayMusic();
+    });
+
+    // ----------------------------
+    // Reveal animations
+    // ----------------------------
+    function revealAll(){
+      const reveal = $$(".reveal");
+      reveal.forEach((el, idx) => {
+        el.animate(
+          [
+            { opacity: 0, transform: "translateY(12px)" },
+            { opacity: 1, transform: "translateY(0px)" }
+          ],
+          { duration: 650, delay: 120 + idx * 120, easing: "cubic-bezier(.2,.85,.2,1)", fill: "forwards" }
+        );
+      });
+
+      // collage photos pop in
+      const ph = $$(".ph");
+      ph.forEach((p, i) => {
+        p.animate(
+          [
+            { opacity: 0, transform: "translateY(14px) scale(.97)" },
+            { opacity: 1, transform: "translateY(0px) scale(1)" }
+          ],
+          { duration: 650, delay: 320 + i * 90, easing: "cubic-bezier(.2,.85,.2,1)", fill: "forwards" }
+        );
+      });
+    }
+
+    // ----------------------------
+    // Message buttons
+    // ----------------------------
+    const mainMsg = $("#mainMsg");
+
+    function pick(arr){
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    $("#wishBtn").addEventListener("click", () => {
+      mainMsg.innerHTML = pick(wishes);
+      burstConfetti(120);
+    });
+
+    $("#flirtBtn").addEventListener("click", () => {
+      mainMsg.innerHTML = pick(flirts);
+      spawnHearts(12);
+    });
+
+    $("#complBtn").addEventListener("click", () => {
+      mainMsg.innerHTML = pick(compliments);
+    });
+
+    // ----------------------------
+    // Scroll to photos
+    // ----------------------------
+    $("#scrollPhotos").addEventListener("click", () => {
+      $("#photosSection").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // ----------------------------
+    // Modal open for photos
+    // ----------------------------
+    const modal = $("#modal");
+    const modalImg = $("#modalImg");
+    const modalTitle = $("#modalTitle");
+
+    function openModal(i){
+      const item = photos[i-1];
+      modalTitle.textContent = `Photo ${i} — ${item.cap}`;
+      modalImg.src = item.src;
+      modal.classList.add("open");
+      spawnHearts(8);
+    }
+    function closeModal(){
+      modal.classList.remove("open");
+    }
+
+    $$(".ph").forEach((p) => {
+      p.addEventListener("click", () => openModal(Number(p.dataset.i)));
+    });
+    $("#closeModal").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // ----------------------------
+    // Slider building
+    // ----------------------------
+    const track = $("#track");
+    photos.forEach((p, idx) => {
+      const div = document.createElement("div");
+      div.className = "shot";
+      div.innerHTML = `
+        <img src="${p.src}" alt="Tarun slide ${idx+1}">
+        <div class="cap">
+          <span>${p.cap}</span>
+          <b>${p.tag}</b>
+        </div>
+      `;
+      div.addEventListener("click", () => openModal(idx+1));
+      track.appendChild(div);
+    });
+
+    let slideIndex = 0;
+    function updateSlider(){
+      const cardW = 260;
+      const gap = 12;
+      const offset = (cardW + gap) * slideIndex;
+      track.style.transform = `translateX(${-offset}px)`;
+    }
+
+    $("#next").addEventListener("click", () => {
+      slideIndex = Math.min(slideIndex + 1, photos.length - 1);
+      updateSlider();
+      spawnHearts(4);
+    });
+    $("#prev").addEventListener("click", () => {
+      slideIndex = Math.max(slideIndex - 1, 0);
+      updateSlider();
+    });
+
+    // Touch swipe
+    const rail = $("#rail");
+    let startX = 0, dragging = false;
+    rail.addEventListener("touchstart", (e) => {
+      dragging = true;
+      startX = e.touches[0].clientX;
+    }, { passive:true });
+    rail.addEventListener("touchend", (e) => {
+      if (!dragging) return;
+      dragging = false;
+      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 40){
+        if (diff < 0) $("#next").click();
+        else $("#prev").click();
+      }
+    });
+
+    // ----------------------------
+    // Hearts effect
+    // ----------------------------
+    const heartsLayer = $("#hearts");
+    function spawnHearts(n=10){
+      for (let i=0;i<n;i++){
+        const h = document.createElement("div");
+        h.className = "heartFloat";
+        const size = 8 + Math.random()*10;
+        h.style.width = size + "px";
+        h.style.height = size + "px";
+        h.style.left = (Math.random()*100) + "vw";
+        h.style.bottom = "-20px";
+        h.style.animationDuration = (3 + Math.random()*3) + "s";
+        h.style.background = Math.random() < .5
+          ? "rgba(255,95,162,.95)"
+          : "rgba(180,140,255,.92)";
+        heartsLayer.appendChild(h);
+        setTimeout(() => h.remove(), 6500);
+      }
+    }
+    $("#heartsBtn").addEventListener("click", () => spawnHearts(22));
+
+    // ----------------------------
+    // Confetti
+    // ----------------------------
+    const canvas = $("#confetti");
+    const ctx = canvas.getContext("2d");
+    let W=0,H=0;
+    function resize(){
+      W = canvas.width = window.innerWidth * devicePixelRatio;
+      H = canvas.height = window.innerHeight * devicePixelRatio;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    let particles = [];
+    function burstConfetti(count=160){
+      const originX = W/2;
+      const originY = H*0.25;
+      for(let i=0;i<count;i++){
+        particles.push({
+          x: originX + (Math.random()*120 - 60) * devicePixelRatio,
+          y: originY + (Math.random()*80 - 40) * devicePixelRatio,
+          vx: (Math.random()*8 - 4) * devicePixelRatio,
+          vy: (Math.random()*-10 - 6) * devicePixelRatio,
+          g: (0.35 + Math.random()*0.18) * devicePixelRatio,
+          s: (6 + Math.random()*8) * devicePixelRatio,
+          r: Math.random()*Math.PI,
+          vr: (Math.random()*0.25 - 0.12),
+          life: 160 + Math.random()*70,
+          color: Math.random() < .33 ? "#ff5fa2" : (Math.random() < .5 ? "#b48cff" : "#ffd77a")
+        });
+      }
+    }
+    $("#confettiBtn").addEventListener("click", () => burstConfetti(240));
+
+    function tick(){
+      ctx.clearRect(0,0,W,H);
+      particles = particles.filter(p => p.life > 0 && p.y < H + 80*devicePixelRatio);
+      for(const p of particles){
+        p.life -= 1;
+        p.vy += p.g;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.r += p.vr;
+
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.r);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, Math.min(1, p.life / 200));
+        ctx.fillRect(-p.s/2, -p.s/2, p.s, p.s*0.65);
+        ctx.restore();
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    // ----------------------------
+    // Extra: Auto cute pop after a while
+    // ----------------------------
+    setTimeout(() => {
+      if (!intro.classList.contains("hide")) return;
+      mainMsg.innerHTML = "Tarun… aaj ke din bas ek baat: tum bahot pyaare ho. And haan… mere hi 😌💗";
+      spawnHearts(14);
+    }, 8000);
+
+    // Start with subtle hidden reveal, only after intro open
+    // (If user refreshes and intro already hidden, reveal anyway)
+    setTimeout(() => {
+      if (intro.classList.contains("hide")) revealAll();
+    }, 600);
+  </script>
+</body>
+</html>
